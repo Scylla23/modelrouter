@@ -136,7 +136,7 @@ All state human-readable. Nothing leaves the machine.
       watch the escalation line.
       Demo value: HIGH — the "it remembered" moment.
 
-- [ ] T3.3 — /router:reflect
+- [x] T3.3 — /router:reflect
       What: `skills/reflect/SKILL.md` with `context: fork`, `agent: haiku-worker` — reads recent
       log.jsonl (redos, overrides, escalations) + current memory.md, rewrites memory.md: adds dated
       rules for repeated signals, prunes stale ones. Strict output contract so rules stay parseable.
