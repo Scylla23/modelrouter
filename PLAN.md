@@ -116,7 +116,7 @@ All state human-readable. Nothing leaves the machine.
 
 ## Phase 3: Learning Loop (must ship — this is the differentiator)
 
-- [ ] T3.1 — Cold-start memory.md + rule grammar
+- [x] T3.1 — Cold-start memory.md + rule grammar
       What: ship `defaults/memory.md` with sensible dated first-person defaults ("2026-07-12: Test
       files and lockfile churn → haiku"). Define the dual-readable rule line:
       `- YYYY-MM-DD: <pattern> → <tier> (<reason>)` — prose to humans, grammar to the enforcer.

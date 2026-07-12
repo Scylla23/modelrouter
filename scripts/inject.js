@@ -37,7 +37,7 @@ async function main() {
   const rules = memory
     .split(/\r?\n/)
     .filter((line) => /^- \d{4}-\d{2}-\d{2}:/.test(line))
-    .slice(0, 3);
+    .slice(-3);
   const directive = [
     `[router] mode: ${config.mode || "balanced"} · audit: ` +
       (config.audit ? "on" : "off"),
