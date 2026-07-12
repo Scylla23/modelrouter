@@ -108,7 +108,7 @@ All state human-readable. Nothing leaves the machine.
       Test: delegate to haiku → `/router:redo` → same task runs on sonnet; log shows paired entries.
       Demo value: HIGH — "undo my routing" is the trust feature; it's in the demo script.
 
-- [ ] T2.4 — Phase-2 demo checkpoint
+- [x] T2.4 — Phase-2 demo checkpoint
       What: run route → one-liner → redo → check log end-to-end; screenshot the one-liner + redo exchange.
       Files: none
       Test: sequence works cold, from a fresh `~/.router`.
