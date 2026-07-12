@@ -46,7 +46,7 @@ All state human-readable. Nothing leaves the machine.
       haiku-worker or sonnet-worker, cites the rubric.
       Demo value: low
 
-- [ ] T1.4 — UserPromptSubmit inject hook
+- [x] T1.4 — UserPromptSubmit inject hook
       What: `scripts/inject.js` on UserPromptSubmit — injects a compact (~10 line) routing directive
       via additionalContext: current mode, audit flag, top learned rules, and the one-liner output
       contract (T2.1). Also fingerprints the prompt (length, keywords, file mentions) to
