@@ -25,9 +25,10 @@ Use this rubric to choose the cheapest worker capable of completing the task.
 
 1. The cheapest capable tier wins.
 2. When in doubt between two tiers, pick the lower and note that escalation
-   is one `/router:redo` away.
-3. Always print the one-liner below as a plain-text line (not a code
-   block) immediately before delegating. Never delegate silently.
+   is one `/router:redo` away, unless the directive's mode line, when present,
+   overrides the pick-the-lower default.
+3. The router hook prints the one-liner below. Give every Agent call a
+   plain-ASCII description ≤32 chars. Never delegate silently.
 
 ## When NOT to delegate
 
@@ -43,8 +44,5 @@ seconds.
 
 Exactly one glyph (`→`); the whole line must fit in 80 columns.
 
-The summary is plain ASCII - no arrows, emoji, or unicode of its own
-(observed live: a model wrote "teh→the" and doubled the glyph).
-
-Print it for every delegation, including auto-escalations via the
-architect/design skills.
+The hook prints this line for every delegation, including auto-escalations.
+The model's duty is a plain-ASCII description ≤32 chars on every Agent call.

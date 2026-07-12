@@ -16,10 +16,8 @@ Re-run that task one tier up. Follow these steps exactly:
    nothing to redo and stop.
 2. The target is the `next:` line above. Exactly one tier up - never skip
    tiers, never stay at the same tier (unless already at fable).
-3. Print the routing one-liner, then delegate:
-   `→ <agent> · <task summary ≤32 chars> · /router:redo to escalate`
-   The summary is plain ASCII - no arrows, emoji, or unicode beyond the
-   line's own `→` and `·`.
+3. The router announces the delegation automatically. Give the Agent call
+   a plain-ASCII description ≤32 chars.
 4. Delegate the SAME task to the target agent. If the `next:` line says
    `(model: fable)`, pass model "fable" in the Agent tool call - the
    per-invocation model outranks the agent's default. Use the full task

@@ -22,11 +22,16 @@ async function main() {
   let stdin = "";
   for await (const chunk of process.stdin) stdin += chunk;
   const input = JSON.parse(stdin);
-  if (Object.hasOwn(input, "tool_name") && input.tool_name !== "Agent") return;
+  if (input.tool_name !== "Agent") return;
 
   const toolInput = input.tool_input || {};
   const agent = String(toolInput.subagent_type || "").split(":").pop();
   if (!Object.hasOwn(agents, agent)) return;
+  const clean = value => String(value ?? "")
+    .replace(/[^\x20-\x7e]/g, "").replace(/\s+/g, " ").trim().slice(0, 32);
+  const summary = clean(toolInput.description) || clean(toolInput.prompt) ||
+    "delegated task";
+  const oneLiner = `→ ${agent} · ${summary} · /router:redo to escalate`;
   const current = tiers.includes(toolInput.model)
     ? toolInput.model
     : agents[agent];
@@ -66,7 +71,10 @@ async function main() {
       best = rule;
     }
   }
-  if (!best || tiers.indexOf(best.tier) <= tiers.indexOf(current)) return;
+  if (!best || tiers.indexOf(best.tier) <= tiers.indexOf(current)) {
+    process.stdout.write(JSON.stringify({ systemMessage: oneLiner }));
+    return;
+  }
 
   fs.mkdirSync(state, { recursive: true });
   fs.writeFileSync(
@@ -81,7 +89,7 @@ async function main() {
     }, null, 2) + "\n",
   );
   process.stdout.write(JSON.stringify({
-    systemMessage: `↑ escalated to ${best.tier} · learned rule: ` +
+    systemMessage: `${oneLiner}\n↑ escalated to ${best.tier} · learned rule: ` +
       `${best.pattern.slice(0, 29)} (${best.date})`,
     hookSpecificOutput: {
       hookEventName: "PreToolUse",

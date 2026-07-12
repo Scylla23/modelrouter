@@ -52,13 +52,21 @@ async function main() {
       "standard implementation -> sonnet-worker",
     "  complex multi-file -> opus-worker     " +
       "architecture/planning -> fable-architect",
+    ...(config.mode === "frugal"
+      ? ["Frugal mode: when two tiers could both work, ALWAYS take the LOWER one."]
+      : config.mode === "performance"
+        ? ["Performance mode: overrides cheapest-tier - ALWAYS take the HIGHER tier."]
+        : []),
     "Do not delegate interactive, ambiguous, or conversational work.",
     "Architecture, system design, and migration planning are ALWAYS delegated",
     "to fable-architect - never answer them at the main tier, however small.",
-    "Before EVERY delegation, print exactly this plain-text line, then delegate:",
-    "  → <agent> · <task summary ≤32 chars> · /router:redo to escalate",
-    "<agent> is the basename (haiku-worker), never the namespaced form. Summary is",
-    "plain ASCII. Whole line fits 80 columns. Never delegate silently or skip it.",
+    "Every delegation to a router worker is announced automatically with a",
+    "`→ <agent> · <task> · /router:redo to escalate` line printed by the",
+    "router hook - do NOT print that line yourself. Never delegate silently.",
+    "Give every Agent call a description: a plain-ASCII task summary",
+    "≤32 chars (it becomes the announcement and the log entry).",
+    "An explicit user pin (e.g. delegate this to haiku-worker) outranks learned",
+    "rules - obey it; the router hook escalates automatically when a rule applies.",
     "Consult the routing-policy skill when unsure.",
     "Learned rules (top 3):",
     ...(rules.length
