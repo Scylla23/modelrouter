@@ -53,6 +53,24 @@ async function main() {
       fs.unlinkSync(marker);
     }
   } catch {}
+  const enforceMarker = path.join(state, "enforce-pending.json");
+  try {
+    if (fs.existsSync(enforceMarker)) {
+      let pending;
+      try {
+        pending = JSON.parse(fs.readFileSync(enforceMarker, "utf8"));
+      } catch {}
+      if (pending &&
+          Date.now() - Date.parse(pending.ts) < 60 * 60 * 1000 &&
+          pending.agent === event.agent &&
+          pending.enforced_model === event.model) {
+        event.flags.enforced = true;
+        event.enforced_from = pending.enforced_from;
+        event.enforced_rule = pending.rule;
+      }
+      fs.unlinkSync(enforceMarker);
+    }
+  } catch {}
   fs.appendFileSync(path.join(state, "log.jsonl"), JSON.stringify(event) + "\n");
 }
 

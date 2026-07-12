@@ -125,7 +125,7 @@ All state human-readable. Nothing leaves the machine.
       Test: file reads naturally aloud AND every rule line parses with the T3.2 parser.
       Demo value: HIGH — this file gets screenshotted ("look what it learned").
 
-- [ ] T3.2 — Enforcer hook (the updatedInput trick)
+- [x] T3.2 — Enforcer hook (the updatedInput trick)
       What: `scripts/enforce.js` on PreToolUse (matcher: `Agent`) — parse memory.md rules, match
       against the delegation's task/files; on override, return full echoed input with new `model` +
       `permissionDecision: "allow"` + systemMessage:
