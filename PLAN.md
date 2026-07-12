@@ -260,7 +260,7 @@ All state human-readable. Nothing leaves the machine.
       Test: each surface screenshotted; no misalignment, no wrapped lines.
       Demo value: HIGH
 
-- [ ] T5.7 — Name decision + rename sweep
+- [x] T5.7 — Name decision + rename sweep
       What: final name call (ModelRouter vs Downshift vs other); if renamed: dir, plugin.json,
       command namespace, README, badge.
       Files: repo-wide grep

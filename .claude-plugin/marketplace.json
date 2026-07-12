@@ -1,6 +1,7 @@
 {
-  "name": "router-dev",
-  "owner": { "name": "local" },
+  "name": "modelrouter",
+  "description": "ModelRouter - routes every task to the cheapest Claude model that can nail it.",
+  "owner": { "name": "Pavan Kushnure" },
   "plugins": [
     { "name": "router", "source": "./" }
   ]
