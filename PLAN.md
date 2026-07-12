@@ -291,7 +291,7 @@ All state human-readable. Nothing leaves the machine.
       Test: repo rule beats user rule for the same pattern.
       Demo value: low
 
-- [ ] T6.3 — /router:redo --dry-run
+- [x] T6.3 — /router:redo --dry-run
       What: show what redo would re-run and on which tier, without running it.
       Files: skills/redo/SKILL.md, scripts/last-task.js
       Test: dry-run prints plan, log untouched.

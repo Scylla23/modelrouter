@@ -14,6 +14,7 @@ const none = "last-task: none — no delegations logged in this repo yet.";
 
 function main() {
   try {
+    const dryRun = process.argv.includes("--dry-run");
     const state = path.join(process.cwd(), ".router");
     const lines = fs.readFileSync(
       path.join(state, "log.jsonl"),
@@ -34,6 +35,18 @@ function main() {
     } else if (next === "fable" && model === "fable") {
       nextLine = "next: fable via fable-architect " +
         "(already top tier - re-runs at fable)";
+    }
+
+    if (dryRun) {
+      const worker = next === "fable" && agent !== "fable-architect"
+        ? "opus-worker"
+        : agents[next];
+      process.stdout.write(
+        `last-task: ${task}\n` +
+        `agent: ${entry.agent}   model: ${entry.model}\n` +
+        `dry-run: would re-run at ${next} via ${worker} · log untouched\n`,
+      );
+      return;
     }
 
     fs.mkdirSync(state, { recursive: true });
