@@ -154,7 +154,7 @@ All state human-readable. Nothing leaves the machine.
 
 ## Phase 4: The Viral Layer (must ship — this is the marketing)
 
-- [ ] T4.1 — /router:stats — the screenshot machine
+- [x] T4.1 — /router:stats — the screenshot machine
       What: `scripts/stats.js` renders the report card from log.jsonl + memory.md: headline savings
       number first ("🎯 ~47% of Opus quota saved this week"), unicode-block prompts-per-tier bar chart,
       down-route %, override rate, 2–3 verbatim "What I've learned about you" lines. Skill prints
