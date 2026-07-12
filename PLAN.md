@@ -197,7 +197,7 @@ All state human-readable. Nothing leaves the machine.
       Test: fixture spanning 14 days → correct week split + a personal best; <7 days of data degrades gracefully.
       Demo value: HIGH
 
-- [ ] T4.6 — First-run greeting, real copy
+- [x] T4.6 — First-run greeting, real copy
       What: rewrite T2.2 greeting: short, characterful, sets the deal ("I'll route, I'll explain every
       choice, and /router:redo undoes me. Watch me learn."). The onboarding screenshot.
       Files: scripts/init.js

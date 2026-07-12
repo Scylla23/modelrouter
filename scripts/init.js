@@ -33,10 +33,9 @@ async function main() {
   process.stdout.write(JSON.stringify({
     systemMessage: [
       "[router] First run: created ~/.router (memory.md, config.json).",
-      "I route each task to the cheapest capable model and announce it " +
-        "in one line.",
-      "Wrong call? /router:redo re-runs it one tier up - I learn from " +
-        "every redo.",
+      "I route every task to the cheapest model that can nail it - and I say so.",
+      "Wrong call? /router:redo re-runs it one tier up. I remember every correction.",
+      "Watch me learn: /router:stats after a day. Paranoid? /router:audit on.",
     ].join("\n"),
   }));
 }
