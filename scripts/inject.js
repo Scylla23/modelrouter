@@ -40,8 +40,12 @@ async function main() {
   const config = loaded && typeof loaded === "object" &&
     !Array.isArray(loaded) ? loaded : defaults;
   const memory = optional(path.join(home, "memory.md"), "");
-  const rules = memory
-    .split(/\r?\n/)
+  const overlay = optional(
+    path.join(input.cwd || process.cwd(), ".router", "memory.md"),
+    "",
+  );
+  const rules = [memory, overlay]
+    .flatMap((contents) => contents.split(/\r?\n/))
     .filter((line) => /^- \d{4}-\d{2}-\d{2}:/.test(line))
     .slice(-3);
   const routingDirective = [

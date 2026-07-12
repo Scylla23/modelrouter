@@ -37,6 +37,7 @@ async function main() {
     : agents[agent];
   if (!current) return;
 
+  const state = path.join(input.cwd || process.cwd(), ".router");
   let memory = "";
   try {
     memory = fs.readFileSync(
@@ -44,13 +45,16 @@ async function main() {
       "utf8",
     );
   } catch {}
-  const rules = memory.split(/\r?\n/).flatMap((line) => {
+  let overlay = "";
+  try {
+    overlay = fs.readFileSync(path.join(state, "memory.md"), "utf8");
+  } catch {}
+  const rules = [memory, overlay].join("\n").split(/\r?\n/).flatMap((line) => {
     const match = line.match(rulePattern);
     return match
       ? [{ date: match[1], pattern: match[2], tier: match[3] }]
       : [];
   });
-  const state = path.join(input.cwd || process.cwd(), ".router");
   let fingerprint = {};
   try {
     fingerprint = JSON.parse(

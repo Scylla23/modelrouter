@@ -161,6 +161,9 @@ was wrong"), then rewrites memory.md, adding dated rules for repeated
 corrections and pruning stale ones. You can also just edit the file; it
 is yours.
 
+Per-repo overlay: `.router/memory.md` is merged after user rules, so ties go
+to the repo rule. `/router:reflect` writes only the user file.
+
 ## Why OAuth proxying is off the table
 
 There is a tempting shortcut this plugin refuses: run a local proxy,

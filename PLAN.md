@@ -285,7 +285,7 @@ All state human-readable. Nothing leaves the machine.
       Test: PNG matches terminal card; absent Chrome → helpful message, no error.
       Demo value: HIGH
 
-- [ ] T6.2 — Per-repo memory overlay
+- [x] T6.2 — Per-repo memory overlay
       What: `.router/memory.md` overrides/extends `~/.router/memory.md`; enforcer merges (repo wins).
       Files: scripts/enforce.js, scripts/inject.js
       Test: repo rule beats user rule for the same pattern.
