@@ -91,7 +91,7 @@ All state human-readable. Nothing leaves the machine.
       Test: 5 varied prompts → 5 one-liners, correct format every time, zero silent delegations.
       Demo value: HIGH — this line is in every screenshot.
 
-- [ ] T2.2 — First-run init hook
+- [x] T2.2 — First-run init hook
       What: `scripts/init.js` on SessionStart — if `~/.router/` missing: create it, copy
       `defaults/memory.md` + default config.json, print greeting via systemMessage (placeholder copy;
       characterful rewrite is T4.6). Idempotent, silent on later runs.
