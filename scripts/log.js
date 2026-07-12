@@ -39,6 +39,20 @@ async function main() {
     fingerprint,
     flags: { redo: false, escalated: false, enforced: false },
   };
+  const marker = path.join(state, "redo-pending.json");
+  try {
+    if (fs.existsSync(marker)) {
+      let pending;
+      try {
+        pending = JSON.parse(fs.readFileSync(marker, "utf8"));
+      } catch {}
+      if (pending && Date.now() - Date.parse(pending.ts) < 60 * 60 * 1000) {
+        event.flags.redo = true;
+        event.redo_from = pending.original_model;
+      }
+      fs.unlinkSync(marker);
+    }
+  } catch {}
   fs.appendFileSync(path.join(state, "log.jsonl"), JSON.stringify(event) + "\n");
 }
 

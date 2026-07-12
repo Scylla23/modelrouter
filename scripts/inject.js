@@ -51,8 +51,8 @@ async function main() {
     "to fable-architect - never answer them at the main tier, however small.",
     "Before EVERY delegation, print exactly this plain-text line, then delegate:",
     "  → <agent> · <task summary ≤32 chars> · /router:redo to escalate",
-    "<agent> is the basename (haiku-worker), never the namespaced form. The whole",
-    "line must fit 80 columns. Never delegate silently, never skip the line.",
+    "<agent> is the basename (haiku-worker), never the namespaced form. Summary is",
+    "plain ASCII. Whole line fits 80 columns. Never delegate silently or skip it.",
     "Consult the routing-policy skill when unsure.",
     "Learned rules (top 3):",
     ...(rules.length

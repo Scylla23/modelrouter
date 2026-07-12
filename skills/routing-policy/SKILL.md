@@ -43,5 +43,8 @@ seconds.
 
 Exactly one glyph (`→`); the whole line must fit in 80 columns.
 
+The summary is plain ASCII - no arrows, emoji, or unicode of its own
+(observed live: a model wrote "teh→the" and doubled the glyph).
+
 Print it for every delegation, including auto-escalations via the
 architect/design skills.

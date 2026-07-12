@@ -99,7 +99,7 @@ All state human-readable. Nothing leaves the machine.
       Test: `rm -rf ~/.router && claude` → greeting prints once, files exist; second launch silent.
       Demo value: low (becomes HIGH after T4.6 copy pass)
 
-- [ ] T2.3 — /router:redo
+- [x] T2.3 — /router:redo
       What: `skills/redo/SKILL.md` (`disable-model-invocation: true`) + `scripts/last-task.js`.
       Dynamic-context line injects the last log entry; skill instructs: re-delegate same task one tier
       up (haiku→sonnet→opus→fable), and the re-delegation is logged with `redo: true` + original tier —
