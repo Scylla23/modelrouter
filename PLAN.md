@@ -21,7 +21,7 @@ All state human-readable. Nothing leaves the machine.
 
 ## Phase 1: Skeleton & Routing Core (must ship)
 
-- [ ] T1.1 — Repo + plugin skeleton
+- [x] T1.1 — Repo + plugin skeleton
       What: `git init`, `.claude-plugin/plugin.json` (name `router`), directory tree with one-line
       placeholder comments per file (STEP 0.3), MIT LICENSE stub, local marketplace.json for dev installs.
       Files: .claude-plugin/plugin.json, agents/, skills/, hooks/, scripts/, defaults/, LICENSE, marketplace.json
