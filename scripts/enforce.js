@@ -37,10 +37,13 @@ async function main() {
     : agents[agent];
   if (!current) return;
 
-  const memory = fs.readFileSync(
-    path.join(os.homedir(), ".router", "memory.md"),
-    "utf8",
-  );
+  let memory = "";
+  try {
+    memory = fs.readFileSync(
+      path.join(os.homedir(), ".router", "memory.md"),
+      "utf8",
+    );
+  } catch {}
   const rules = memory.split(/\r?\n/).flatMap((line) => {
     const match = line.match(rulePattern);
     return match
