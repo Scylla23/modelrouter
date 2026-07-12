@@ -238,7 +238,7 @@ All state human-readable. Nothing leaves the machine.
       Test: technically accurate against STEP 0.1 findings; readable as a standalone blog post.
       Demo value: low
 
-- [ ] T5.4 — License, contributing, first issues
+- [x] T5.4 — License, contributing, first issues
       What: MIT LICENSE (finalize), CONTRIBUTING.md (dev-install loop, no-deps rule, screenshot
       standard for terminal output), 3 good-first-issue drafts (e.g. new rubric keywords, a mode
       preset, stats color themes).
