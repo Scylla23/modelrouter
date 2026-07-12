@@ -19,13 +19,26 @@ Rewrite ~/.router/memory.md from the routing log. Follow exactly:
    If ./.router/log.jsonl is missing or empty, report that there is
    nothing to learn from yet and stop. If memory.md is missing, treat it
    as having no rules. Use only the last 40 log lines.
-1. Signals: log entries with flags.redo true (tier redo_from was too low;
-   the entry's model is where it landed) and flags.enforced true (rule
-   confirmed working). Ignore entries with no flags set.
-2. A pattern earns a rule when ≥2 signals share a keyword — from task
-   text, fingerprint.files, or fingerprint.keywords. The rule's tier is
-   the tier those tasks LANDED on (entry model); if the signals landed on
-   different tiers, use the highest of them, never anything higher.
+1. Signals: ONLY log entries with flags.redo true (tier redo_from was
+   too low; the entry's model is where it landed) or flags.enforced true
+   (rule confirmed working). An entry whose flags are all false is NEVER
+   a signal — the log usually holds pairs (an unflagged original plus
+   its flagged redo, same task); such a pair is ONE signal: the flagged
+   entry. Two entries with the same task text are one signal, not two.
+   If BOTH entries of a pair are flagged (an enforced task that was then
+   redone), the LATER entry is the signal — a redo after an enforcement
+   means the rule's tier was still too low, a contradiction, not a
+   confirmation.
+2. Tokenize each signal: lowercase its task text and split on every
+   character that is not a-z or 0-9; keep tokens of 3+ characters that
+   are not stopwords (list in point 3); add fingerprint.keywords and
+   fingerprint.files tokenized the same way. Example: task "Fix typo in
+   auth.js" gives fix, typo, auth. A pattern earns a rule when the SAME
+   token appears in the token sets of 2 or more signals with DIFFERENT
+   task texts. A token seen in only one signal earns nothing, no matter
+   how strong it looks. The rule's tier is the tier those tasks LANDED
+   on (entry model); if the signals landed on different tiers, use the
+   highest of them, never anything higher.
 3. Rewrite the file with the Write tool. Output contract — every point is
    mandatory:
    - Keep the header (everything above the first `- ` line) byte-identical.
@@ -41,8 +54,9 @@ Rewrite ~/.router/memory.md from the routing log. Follow exactly:
    - Newest last. One rule per pattern: if a pattern already has a rule,
      REMOVE the old line and append the updated rule (new tier/date/
      reason) at the end — an updated rule is the newest. Never duplicate.
-   - Prune a rule only when ≥2 redo signals contradict its tier on
-     matching tasks. Never touch rules the log says nothing about.
+   - Prune a rule only when ≥2 redo signals with different task texts
+     contradict its tier on matching tasks. ONE contradicting signal
+     changes nothing. Never touch rules the log says nothing about.
    - Max 12 rules; if over, drop the oldest first.
 4. No new signals → change nothing and say so.
 5. Re-read the file after writing; if any rule line fails the regex, fix

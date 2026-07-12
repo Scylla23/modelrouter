@@ -145,7 +145,7 @@ All state human-readable. Nothing leaves the machine.
       dated auth rule that T3.2's parser accepts.
       Demo value: HIGH
 
-- [ ] T3.4 — Phase-3 demo checkpoint: the full learning loop
+- [x] T3.4 — Phase-3 demo checkpoint: the full learning loop
       What: fresh state → auth task routes to haiku → redo → redo again next task → reflect →
       memory gains rule → next auth task auto-escalates with the learned-rule line. The core demo arc.
       Files: none
