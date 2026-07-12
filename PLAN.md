@@ -246,7 +246,7 @@ All state human-readable. Nothing leaves the machine.
       Test: a newcomer can dev-install and run the T1.7 checkpoint from CONTRIBUTING alone.
       Demo value: none
 
-- [ ] T5.5 — Clean-machine install pass
+- [x] T5.5 — Clean-machine install pass
       What: install via the one-liner on a machine/user with no dev setup; fix anything that prompts,
       errors, or looks wrong. Verify zero-dependency claim (node stdlib only).
       Files: whatever the pass surfaces
