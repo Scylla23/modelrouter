@@ -56,7 +56,7 @@ All state human-readable. Nothing leaves the machine.
       → valid JSON with additionalContext; live session shows routing behavior without invoking the skill manually.
       Demo value: low
 
-- [ ] T1.5 — Auto-escalation skills
+- [x] T1.5 — Auto-escalation skills
       What: `skills/architect/SKILL.md` (`model: fable`, description: "multi-file architecture change,
       system redesign") and `skills/design/SKILL.md` (`model: opus`, description: "system design /
       planning session"). Precise descriptions so Claude self-invokes them; model reverts next prompt.
