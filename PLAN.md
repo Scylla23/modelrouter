@@ -65,7 +65,7 @@ All state human-readable. Nothing leaves the machine.
       shows fable for the turn, reverts on next prompt.
       Demo value: HIGH — the "it escalated itself" moment in the demo video.
 
-- [ ] T1.6 — Decision logging hook
+- [x] T1.6 — Decision logging hook
       What: `scripts/log.js` on PostToolUse (matcher: `Agent`) — appends one JSONL event per delegation
       to `.router/log.jsonl`: ts, model, agent type, task description, prompt fingerprint (from
       last-prompt.json), flags (redo/escalated/enforced — flags wired in later tasks, schema now).
