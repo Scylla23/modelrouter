@@ -182,7 +182,7 @@ All state human-readable. Nothing leaves the machine.
       hypothetical savings; audit off restores routing.
       Demo value: HIGH — powers the "I ran it in audit mode for 2 days" post.
 
-- [ ] T4.4 — /router:mode presets
+- [x] T4.4 — /router:mode presets
       What: `frugal|balanced|performance` written to config.json; inject.js shifts the rubric
       thresholds one tier accordingly. Each switch prints a characterful confirmation
       (frugal: "Max plan is now on a diet.").
@@ -190,7 +190,7 @@ All state human-readable. Nothing leaves the machine.
       Test: same ambiguous prompt routes one tier lower in frugal than in performance.
       Demo value: HIGH — frugal is the screenshot mode.
 
-- [ ] T4.5 — /router:week digest
+- [x] T4.5 — /router:week digest
       What: `scripts/week.js` — "Your week in routing": 7-day tier mix, trend vs prior week, one
       personal-best line ("Longest streak without touching Fable: 3 days").
       Files: scripts/week.js, skills/week/SKILL.md
