@@ -387,7 +387,7 @@ CLI-only; Vercel Git integration stays off (no double deploys).
       gh run list count unchanged after a non-src push.
       Demo value: none
 
-- [ ] T8.5 — The real landing page (BLOCKED: user design guidelines)
+- [x] T8.5 — The real landing page (BLOCKED: user design guidelines)
       What: rebuild index.html per the user's guidelines (frontend-design
       skill), record guidelines + decisions in design.md; pipeline deploys it.
       Files: src/index.html, src/design.md
