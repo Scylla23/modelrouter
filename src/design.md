@@ -94,6 +94,19 @@ action, copy comes only from README.md / DEMO.md / docs/how-it-works.md.
   1120px. Reviewed against a build carrying real font and video payloads,
   not placeholders.
 
+- 2026-07-13 (T8.8): the copy button carries a real copy icon now (Tabler
+  Icons, MIT, inlined as SVG paths because the page loads nothing
+  external), label kept beside it. On a successful copy the icon swaps to
+  a check while the aria-live region announces "Copied"; the failure path
+  keeps the copy icon and offers the Cmd-C fallback.
+- 2026-07-13 (T8.8): every italic is set one step heavier than its roman.
+  Cormorant's italic reads optically lighter than its roman at the same
+  weight, which left the small italic UI text (install label, captions,
+  terminal label, trust line) looking frail. Those go to 500 (new 500
+  italic face embedded); the display italic in the headline goes to 400
+  against the 300 roman. The 300 italic face is dropped: nothing is set
+  that light any more, so it was 30 KB of dead payload.
+
 ## Theme reference (verbatim)
 
 # Chantlings — Style Reference
