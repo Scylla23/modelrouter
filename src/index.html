@@ -101,12 +101,11 @@ a:focus-visible, button:focus-visible {
 /* ---- top bar: a whisper, not a banner ---- */
 .top {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: 26px var(--pad) 0;
   font-size: 19px;
 }
-.mark { display: block; }
 
 /* ---- hero ---- */
 .hero {
@@ -446,10 +445,6 @@ if (window.matchMedia && !matchMedia('(prefers-reduced-motion: reduce)').matches
 <div class="page">
 
 <header class="top">
-  <svg class="mark" width="36" height="22" viewBox="0 0 36 22" aria-hidden="true">
-    <circle cx="11" cy="11" r="9" fill="none" stroke="#ffffff" stroke-width="1"/>
-    <circle cx="25" cy="11" r="9" fill="none" stroke="#ffffff" stroke-width="1"/>
-  </svg>
   <a class="glink" href="https://github.com/Scylla23/modelrouter">GitHub</a>
 </header>
 
