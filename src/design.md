@@ -19,6 +19,7 @@ action, copy comes only from README.md / DEMO.md / docs/how-it-works.md.
   end-to-end before the real design lands.
 - 2026-07-13: theme reference (Chantlings) folded in verbatim at T8.0; it
   supersedes the "pending guidelines" placeholder from the original scaffold.
+- 2026-07-13: pipeline e2e probe — this line proves push→deploy works.
 
 ## Theme reference (verbatim)
 
