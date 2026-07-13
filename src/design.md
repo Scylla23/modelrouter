@@ -1,5 +1,25 @@
 # ModelRouter landing page — design spec
 
+Status: placeholder shipped; the real page (T8.5) builds on the theme reference below.
+
+## Constraints (locked)
+- One self-contained file: src/index.html — inline CSS, no build step,
+  no external resource loads (fonts, scripts, images inlined or system).
+- src/ holds exactly two files: index.html and this file. CI enforces it.
+- Every push to main touching src/ auto-deploys to Vercel production.
+
+## Guidelines (from the user)
+The Chantlings style reference under "## Theme reference (verbatim)" below is
+the design source for T8.5. Adapt its system to ModelRouter — map, don't copy:
+ember = the router's signals, the install one-liner is the single chromatic
+action, copy comes only from README.md / DEMO.md / docs/how-it-works.md.
+
+## Decisions
+- 2026-07-13: placeholder page ships first so the pipeline is proven
+  end-to-end before the real design lands.
+- 2026-07-13: theme reference (Chantlings) folded in verbatim at T8.0; it
+  supersedes the "pending guidelines" placeholder from the original scaffold.
+
 ## Theme reference (verbatim)
 
 # Chantlings — Style Reference

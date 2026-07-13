@@ -344,3 +344,60 @@ scripts/, data/, or templates/ changes in this phase; zero new require()s.
       Test: runbooks walked through dry by Fable (bash -n + --print); every quoted output
       string verified against scripts/init.js and scripts/config-set.js.
       Demo value: none — but launch-day open items 1 and 2 die here.
+
+## Phase 8: Landing page + Vercel CI/CD (added 2026-07-13)
+
+Build order: T8.1 → T8.2 → T8.3 → T8.4 → T8.5 → T8.6. Contracts: .route/phase-8.md.
+The plugin is untouched — this phase adds only src/ (index.html + design.md),
+.github/workflows/deploy-landing.yml, and a .gitignore line. The Vercel CLI
+lives on the dev machine and the CI runner, never in the repo. Deploys are
+CLI-only; Vercel Git integration stays off (no double deploys).
+
+- [ ] T8.1 — src/ scaffold (placeholder page + design spec)
+      What: src/ with exactly index.html (self-contained placeholder, README
+      copy, card.html palette) and design.md (constraints + pending guidelines).
+      Files: src/index.html, src/design.md, PLAN.md
+      Test: ls src/ shows exactly the two files; page renders clean in a
+      browser; zero external resource loads.
+      Demo value: low (placeholder)
+
+- [ ] T8.2 — Vercel project + first CLI production deploy
+      What: create/link project modelrouter-landing via vercel CLI, extract
+      orgId/projectId, delete transient src/.vercel, gitignore .vercel,
+      deploy src/ to production, verify live URL.
+      Files: .gitignore
+      Test: curl -sI <prod-url> → HTTP 200; page body contains ModelRouter.
+      Demo value: HIGH — the URL exists.
+
+- [ ] T8.3 — CI/CD: deploy-landing workflow + repo secrets
+      What: .github/workflows/deploy-landing.yml — on push to main filtered
+      to src/**: guard (src/ is exactly index.html + design.md) then
+      vercel deploy --prod via VERCEL_TOKEN/VERCEL_ORG_ID/VERCEL_PROJECT_ID
+      repo secrets (set via gh secret set).
+      Files: .github/workflows/deploy-landing.yml
+      Test: workflow lints (actionlint or gh workflow view); secrets listed
+      by gh secret list; no run triggered by the workflow's own commit.
+      Demo value: none
+
+- [ ] T8.4 — Pipeline end-to-end verify
+      What: probe commit touching src/design.md → push → run goes green →
+      change live on prod URL; negative probe: non-src push triggers no run.
+      Files: src/design.md (one probe line)
+      Test: gh run watch green; curl /design.md shows the probe line;
+      gh run list count unchanged after a non-src push.
+      Demo value: none
+
+- [ ] T8.5 — The real landing page (BLOCKED: user design guidelines)
+      What: rebuild index.html per the user's guidelines (frontend-design
+      skill), record guidelines + decisions in design.md; pipeline deploys it.
+      Files: src/index.html, src/design.md
+      Test: guidelines all implemented; self-containment gate still 0;
+      eyeball desktop + mobile; auto-deploy delivers it to prod.
+      Demo value: HIGH — this is the public face.
+
+- [ ] T8.6 — Launch-surface hookup (GATED: user OK — README is locked copy)
+      What: add the live URL where the user approves (README link and/or
+      repo About field via gh repo edit --homepage).
+      Files: README.md (only with explicit OK)
+      Test: link renders on the public repo page and resolves 200.
+      Demo value: HIGH
