@@ -401,3 +401,15 @@ CLI-only; Vercel Git integration stays off (no double deploys).
       Files: README.md (only with explicit OK)
       Test: link renders on the public repo page and resolves 200.
       Demo value: HIGH
+
+- [x] T8.7 — Landing page v2 per launch feedback
+      What: benefit-first narrative, demo GIF re-encoded to H.264 and played
+      inside the hero terminal, copy button on the install one-liner, larger
+      400-weight body type, compact spacing, motion (load-in, scroll reveals,
+      breathing ember) with full prefers-reduced-motion fallback.
+      Files: src/index.html, src/design.md
+      Test: src/ still exactly 2 files; self-containment grep 0; em/en-dash
+      grep 0; scrollWidth 390 at true-390 and 960 at 960; video duration 90s
+      from the data URI; reduced motion pauses it behind a Play control;
+      codex review clean.
+      Demo value: HIGH — this is the public face.

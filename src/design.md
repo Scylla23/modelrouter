@@ -47,6 +47,53 @@ action, copy comes only from README.md / DEMO.md / docs/how-it-works.md.
   mobile (it is a copyable command, not a button label); em-dashes in
   quoted README copy re-punctuated, claims unchanged.
 
+- 2026-07-13 (T8.7): landing page v2, rebuilt on the user's launch feedback.
+  Priority order used throughout: user feedback > theme reference below >
+  taste-skill defaults. Identity kept (obsidian void, graphite hairlines,
+  one ember accent, Cormorant display); dosage changed.
+  Dials: VARIANCE 7 / MOTION 5 / DENSITY 5 (v1 was 7 / 3 / 2).
+- 2026-07-13 (T8.7): typography. Body is now Cormorant Garamond 400 (roman
+  + italic, same base64 woff2 pipeline, latin subset); 300 stays for
+  display only. At 20-23px the 300 weight read as too thin, and the
+  feedback ranks readability over delicacy. Reading sizes: body 20-21px,
+  lede 23px, measures widened to 66-68ch. The Chantlings type scale
+  (14/20/24/25/32) is therefore overruled upward.
+- 2026-07-13 (T8.7): the ghost terminal is no longer empty. docs/demo.gif
+  (880x520, 3.3 MB, 90s) is re-encoded to H.264 (12 fps, crf 30, 727 KB)
+  and embedded as a base64 data URI: same visual, ~4.5x smaller, still one
+  self-contained file (the two-file CI guard makes a separate asset file
+  impossible). Muted, looping, playsinline. This overrules the theme's
+  "the product is implied, never demonstrated" rule: the demo is the proof
+  the page exists to deliver.
+- 2026-07-13 (T8.7): the page has JS now, reversing v1's no-JS decision.
+  It buys three things the feedback asked for and nothing else: a copy
+  button on the install one-liner (navigator.clipboard, "Copied" announced
+  via aria-live, a Cmd-C fallback when the API is unavailable), a
+  play/pause control on the demo, and IntersectionObserver scroll reveals.
+  No libraries, no scroll listeners, ~40 lines inline.
+- 2026-07-13 (T8.7): motion. Hero load-in cascade, scroll reveals with a
+  staggered signal list, hover and active physics on the button and links,
+  and one ambient signal: the install border breathes ember (the router's
+  pilot light). All of it collapses to static under prefers-reduced-motion,
+  where the demo also stays on its first frame behind a Play control.
+- 2026-07-13 (T8.7): narrative is benefit-first now, not atmospheric. Arc:
+  the outcome (make your Max plan last the whole week) and the demo, then
+  What you get, then The payoff (the stats card, still verbatim and still
+  captioned as a seeded sample), then How it works, then Install. Every
+  claim still traces to README.md / DEMO.md / docs/how-it-works.md.
+- 2026-07-13 (T8.7): spacing. Section padding 60px desktop / 44px mobile
+  (v1: 100/72), heading gaps 28px (v1: 64px), hero pulled together. The
+  theme's 100-196px ceremonial vertical rhythm is explicitly overruled by
+  the feedback; horizontal padding stays generous (84px at 1440).
+- 2026-07-13 (T8.7): shape rule, stated so it stays consistent: surfaces
+  (install block, terminal, stats card) are 6px radius, buttons are full
+  pill. The Copy button is the theme's single filled chromatic action
+  (ember fill, obsidian text, 8.3:1).
+- 2026-07-13 (T8.7): codex review (xhigh) caught the stats card and its
+  caption clipping between 900 and 1120px; the pair now stacks below
+  1120px. Reviewed against a build carrying real font and video payloads,
+  not placeholders.
+
 ## Theme reference (verbatim)
 
 # Chantlings — Style Reference
