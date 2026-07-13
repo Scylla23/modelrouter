@@ -20,6 +20,32 @@ action, copy comes only from README.md / DEMO.md / docs/how-it-works.md.
 - 2026-07-13: theme reference (Chantlings) folded in verbatim at T8.0; it
   supersedes the "pending guidelines" placeholder from the original scaffold.
 - 2026-07-13: pipeline e2e probe — this line proves push→deploy works.
+- 2026-07-13 (T8.5): the real page shipped. Design Read: a developer-tool
+  launch page for design-conscious Claude Code users, ceremonial
+  candlelit-void language mapped from the Chantlings reference below.
+  Dials (taste-skill): VARIANCE 7 / MOTION 3 / DENSITY 2.
+- 2026-07-13 (T8.5): stack decision: hand-crafted vanilla HTML/CSS, no
+  build chain, no JS. The ceremonial static aesthetic gains nothing from
+  React/Tailwind, and one hand-authored file is the most reviewable form
+  of the self-containment constraint. Fonts: Cormorant Garamond 300
+  roman + italic (the spec's Mija substitute) embedded as base64 woff2
+  data URIs (latin subsets, ~22 KB each); zero external requests.
+- 2026-07-13 (T8.5): theme mapping (map, don't copy): ember #ffaa20 is
+  reserved for the router's signals (route/escalation arrows, the stats
+  headline) and the install block border, which takes the App Store
+  badge role as the page's single chromatic action; the ghost phone
+  becomes an empty ghost terminal outline; the creature section becomes
+  the /router:stats card, quoted verbatim from README.md and captioned
+  as the seeded sample. #ff8800 (Amber Glow) is unused: no surface
+  earned a chromatic fill. All copy from README.md / DEMO.md /
+  docs/how-it-works.md only.
+- 2026-07-13 (T8.5): recorded taste-skill overrules (theme spec wins per
+  the phase instruction): single dark theme, no light variant ("the void
+  is the brand"); Bone stays pure #ffffff (named brand token); no
+  photography or generated imagery (the layout vocabulary is wordmark,
+  artifact, and silence); the install command wraps inside its badge on
+  mobile (it is a copyable command, not a button label); em-dashes in
+  quoted README copy re-punctuated, claims unchanged.
 
 ## Theme reference (verbatim)
 
