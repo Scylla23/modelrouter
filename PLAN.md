@@ -415,9 +415,10 @@ CLI-only; Vercel Git integration stays off (no double deploys).
       Demo value: HIGH — this is the public face.
 
 - [x] T8.8 — Landing page polish (copy icon, italic weight)
-      What: real copy icon on the install button (Tabler, inlined) that
-      swaps to a check on success; italics set one step heavier (500 for UI,
-      400 for display); unused 300 italic face dropped.
+      What: glyph-only copy button on the install block (Tabler icon,
+      inlined; name via aria-label) that swaps to a check on success;
+      italics set one step heavier (500 for UI, 400 for display); unused
+      300 italic face dropped.
       Files: src/index.html, src/design.md
       Test: gates unchanged (src/ = 2 files, 0 external loads, 0 em/en-dashes);
       italic 500 face loads and applies; icon swaps to a check on copy.

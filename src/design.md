@@ -94,11 +94,14 @@ action, copy comes only from README.md / DEMO.md / docs/how-it-works.md.
   1120px. Reviewed against a build carrying real font and video payloads,
   not placeholders.
 
-- 2026-07-13 (T8.8): the copy button carries a real copy icon now (Tabler
+- 2026-07-13 (T8.8): the copy button is a glyph only, no text label (Tabler
   Icons, MIT, inlined as SVG paths because the page loads nothing
-  external), label kept beside it. On a successful copy the icon swaps to
-  a check while the aria-live region announces "Copied"; the failure path
-  keeps the copy icon and offers the Cmd-C fallback.
+  external). A 40px ember disc, which clears the WCAG target-size minimum;
+  the name moves to aria-label, so screen readers still hear "Copy the
+  install command". On a successful copy the glyph swaps to a check while
+  the aria-live region announces "Copied"; the failure path keeps the copy
+  glyph and offers the Cmd-C fallback. This overrules the launch feedback's
+  "text label, no icon" instruction, which the user reversed on seeing it.
 - 2026-07-13 (T8.8): every italic is set one step heavier than its roman.
   Cormorant's italic reads optically lighter than its roman at the same
   weight, which left the small italic UI text (install label, captions,
