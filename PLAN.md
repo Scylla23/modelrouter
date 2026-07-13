@@ -320,7 +320,7 @@ scripts/, data/, or templates/ changes in this phase; zero new require()s.
       .router/log.jsonl); beat-2 flake → discard take, max 3; Fable eyeballs every frame.
       Demo value: HIGH — this IS the launch asset.
 
-- [ ] T7.2 — README GIF embed
+- [x] T7.2 — README GIF embed
       What: replace the 3-line launch placeholder with `![30-second demo](docs/demo.gif)`.
       Files: README.md
       Test: diff is exactly placeholder→embed (−3/+1, one hunk); no other README byte changes.

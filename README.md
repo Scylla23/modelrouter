@@ -30,9 +30,7 @@ remembers the correction.
 routed tasks in the pictured week. Re-derive the headline yourself from
 the cost weights at the top of `scripts/stats.js`.*
 
-<!-- TODO(launch): record the 30-second GIF from DEMO.md and embed it here -->
-▶ 30-second demo GIF coming with launch — the script it records is
-[DEMO.md](DEMO.md).
+![30-second demo](docs/demo.gif)
 
 ## Install
 
