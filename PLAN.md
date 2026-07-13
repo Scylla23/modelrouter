@@ -310,7 +310,7 @@ Build order: T7.3 → T7.1 → T7.2 → T7.4. Contracts: .route/phase-7.md.
 Recording tools (vhs/asciinema/agg) are dev-machine brew installs — nothing under
 scripts/, data/, or templates/ changes in this phase; zero new require()s.
 
-- [ ] T7.1 — Record the real 30-second demo GIF
+- [x] T7.1 — Record the real 30-second demo GIF
       What: docs/demo.gif recorded from a REAL interactive claude session running DEMO.md's
       four beats verbatim (down-route one-liner → architect inline escalation → /router:redo
       → /router:stats); recorder probed in order vhs → asciinema+agg → human runbook, never
