@@ -278,7 +278,7 @@ All state human-readable. Nothing leaves the machine.
       Test: git grep pavankushnure → zero hits; RUN_LIVE=1 .route/showcase-p4.sh green.
       Demo value: none
 
-- [ ] T6.1 — /router:stats --png
+- [x] T6.1 — /router:stats --png
       What: render the stats card to PNG via a tiny self-contained HTML template + headless Chrome
       if present (skip gracefully if not).
       Files: scripts/stats-png.js, templates/card.html

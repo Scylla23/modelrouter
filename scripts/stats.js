@@ -3,6 +3,7 @@
 const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
+const { spawnSync } = require("node:child_process");
 
 // relative cost weight per delegated task; opus is the quota unit (T6.4
 // replaces these with data/pricing.json)
@@ -91,6 +92,7 @@ function shareRules(file) {
 
 function main() {
   const share = process.argv.includes("--share");
+  const png = process.argv.includes("--png");
   const showCost = process.argv.includes("--cost");
   const pricing = showCost ? readPricing(path.join(
     __dirname, "..", "data", "pricing.json",
@@ -124,6 +126,7 @@ function main() {
       rule(),
     ].join("\n"));
     if (share) console.log("not enough data for a share card yet");
+    if (png) console.log("not enough data for a stats PNG yet");
     if (showCost && !pricing) {
       console.log("[router] data/pricing.json missing or invalid - cost lines skipped");
     }
@@ -152,7 +155,7 @@ function main() {
     0,
   );
 
-  console.log([
+  const cardText = [
     config.audit
       ? `🔍 audit: ~${saved}% of Opus quota would have been saved`
       : `🎯 ~${saved}% of Opus quota saved this week`,
@@ -172,7 +175,8 @@ function main() {
     rule("what I've learned about you"),
     ...(learned.length ? learned : ["  (nothing yet - /router:redo trains me)"]),
     rule(),
-  ].join("\n"));
+  ].join("\n");
+  console.log(cardText);
 
   if (share) {
     const summary = config.audit
@@ -197,6 +201,19 @@ function main() {
     fs.mkdirSync(state, { recursive: true });
     fs.writeFileSync(path.join(state, "stats-card.md"), card);
     console.log("stats card written to .router/stats-card.md");
+  }
+
+  if (png) {
+    const child = spawnSync(
+      process.execPath,
+      [path.join(__dirname, "stats-png.js")],
+      { input: cardText, encoding: "utf8" },
+    );
+    if (child.error || child.status !== 0) {
+      console.log("[router] could not render PNG");
+    } else if (child.stdout) {
+      console.log(child.stdout.replace(/\n$/, ""));
+    }
   }
 
   if (showCost && !pricing) {
