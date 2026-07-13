@@ -1,0 +1,37 @@
+name: deploy-landing
+
+on:
+  push:
+    branches: [main]
+    paths: ['src/**']
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-landing
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Guard — src/ is exactly index.html + design.md
+        run: |
+          actual=$(find src -mindepth 1 -not -type d | sort)
+          expected=$(printf 'src/design.md\nsrc/index.html')
+          if [ "$actual" != "$expected" ]; then
+            echo 'src/ must contain exactly index.html + design.md, found:'; echo "$actual"; exit 1
+          fi
+
+      - name: Deploy src/ to Vercel production
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          npm install --global vercel@latest
+          vercel deploy --cwd src --prod --yes --token "${{ secrets.VERCEL_TOKEN }}"
