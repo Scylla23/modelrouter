@@ -395,7 +395,7 @@ CLI-only; Vercel Git integration stays off (no double deploys).
       eyeball desktop + mobile; auto-deploy delivers it to prod.
       Demo value: HIGH — this is the public face.
 
-- [ ] T8.6 — Launch-surface hookup (GATED: user OK — README is locked copy)
+- [x] T8.6 — Launch-surface hookup (GATED: user OK — README is locked copy)
       What: add the live URL where the user approves (README link and/or
       repo About field via gh repo edit --homepage).
       Files: README.md (only with explicit OK)

@@ -130,4 +130,4 @@ with your existing Claude Code login and whatever plan you're on.
 
 MIT — [LICENSE](LICENSE) · [DEMO.md](DEMO.md) ·
 [docs/how-it-works.md](docs/how-it-works.md) ·
-[CONTRIBUTING.md](CONTRIBUTING.md)
+[CONTRIBUTING.md](CONTRIBUTING.md) · [modelrouter site](https://modelrouter-landing.vercel.app)
